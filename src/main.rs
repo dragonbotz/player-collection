@@ -2,6 +2,10 @@
 //!
 //! Authors: Lahcène Belhadi <lahcene.belhadi@gmail.com>
 
+mod core;
+mod utils;
+
+use crate::core::api;
 use actix_web::{web, App, HttpServer};
 use dbzlib_rs::database::PgDatabase;
 use dbzlib_rs::util::error::Error;
@@ -28,8 +32,13 @@ async fn main() {
     }
     let database = database.unwrap();
 
-    let server = HttpServer::new(move || App::new().app_data(web::Data::new(database.clone())))
-        .bind(("0.0.0.0", 8080));
+    let server = HttpServer::new(move || {
+        App::new()
+            .app_data(web::Data::new(database.clone()))
+            .service(api::root)
+            .service(api::character_add)
+    })
+    .bind(("0.0.0.0", 8080));
 
     if let Err(error) = server {
         panic!("An error occured while binding server to ip adress and port: {error}")
