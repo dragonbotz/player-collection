@@ -1,0 +1,33 @@
+[package]
+name = "player-collection"
+version = "0.1.0"
+edition = "2021"
+authors = ["Lahcène Belhadi <lahcene.belhadi@gmail.com>"]
+
+# Logging
+# https://crates.io/crates/log
+[dependencies.log]
+version = "0.4.20"
+
+# https://crates.io/crates/env_logger
+[dependencies.env_logger]
+version = "0.10.0"
+
+# HTTP
+# https://crates.io/crates/actix-web
+[dependencies.actix-web]
+version = "4.3"
+
+# SQL
+# https://crates.io/crates/sqlx
+[dependencies.sqlx]
+version = "0.6.3"
+features = ["runtime-tokio-native-tls", "postgres"]
+
+# Serde
+# https://crates.io/crates/serde
+[dependencies.serde]
+version = "1.0"
+
+[dependencies.dbzlib-rs]
+path = "dbzlib-rs"
