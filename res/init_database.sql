@@ -17,6 +17,6 @@ CREATE DATABASE playercollectiondb;
 
 CREATE TABLE IF NOT EXISTS character (
 	id BIGSERIAL PRIMARY KEY,
-	player BIGINT NOT NULL,
+	player VARCHAR(64) NOT NULL,
 	character BIGINT NOT NULL
 );

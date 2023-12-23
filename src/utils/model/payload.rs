@@ -5,6 +5,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct PayloadCharacterAdd {
-    pub player: i64,
+    pub player: String,
     pub character: i64,
 }
